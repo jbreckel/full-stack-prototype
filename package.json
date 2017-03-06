@@ -1,0 +1,7 @@
+{
+  "name": "soshace-test-task",
+  "version": "1.0.0",
+  "author": "Julius Breckel <jj.breckel@gmail.com>",
+  "main": "index.js",
+  "license": "MIT"
+}
