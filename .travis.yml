@@ -1,13 +1,21 @@
+sudo: required
 
 language: node_js
+
 node_js:
   - node
 
-cache:
-  - node_modules
+cache: yarn
+
+services:
+  - docker
 
 env:
   global:
+    # HEROKU_API_KEY
+    - secure: Kr/CxuitjsoyhjQxunBsbbbSdJhwzcjyelYLkpktirAhBVHXi4arbLag6WmcNN9qO4rBMxW/I/Zf2Nj0w9YT3SS0AeqDzAzMo2Qq8p/n6Wnoq/UuQXMr8mmgYdukjd8JM/QnqQoGcuadGHxi/vmQpjxQ8oITNw3ILBbWHtSJfA64L+pUOaOrnoEST15840wVIqG21Y5VVZhvBY6YCSzHHKkSqlrIDJdhcCNjI/bYkQ3HBw20O2rzghI5AdORh5S8Dj0tlbI9B5374i/kQF2OFKx1dBg69QDMyT6IDqaG/XfdIX10VVcrIzGzUTbypFuSekCe934n8woRQ1n7e5TpKRIr5sgwFUWNLVkVuvudk6+04T/iBVqBRy8AdYhl/+ETmZR1mrETX2ZbOza6JYxyuspaQ4HTz5gkK8z1L1ZtyB3d6w2JgCr2LmxSF7u97UNtB+tKyxrBi1L/59UVqCNRpR16wHp4o+djLBptFvHij8s/PcS6nFcFj4DavFhH92pZypD4S4yvM6+7L7C7BjFzRpSpLIQmyo/CwLJ/i+c5NPLULOR3tPDiTq+sx9CP0jcUVnZ8WQhaD7oc4VRJWdULmDTTeV0b9+l4d2E5C4G+Peqk+yi6hRStr6Z4GzVDtWBtSmceuagKM1I0wCIdPrt9oFjHXmB3A9aXPNGR5hxlLFo=
+    # DOCKER_USERNAME
+    - secure: "fP9Y6ZtAbtAlV0iGzAUSeWuYFn2WN4DrCYWajghYtFh9sKhhSTkuFc8Wgv8Ies4+LhGy8Bu7Fk/yaOYIRl1zyey3WwuhOAXyRGU4fBm/HXBtxhPxtPGzOMIplFj2U/TnHZpt+uKpoo7duGIptCyDaGyrCsb4uM7/CK1UbXyuaDTj2yVzYKmvldjpSrFjNvi+05msHZcSPMDI2QJqoQkS/ou+UJd1Te+TS1CBiO8+bZ2tbsTxs19OS0g6CjoFaLcL11VW/31Uf+YLU5LNnfSUjhxSeu1xivNwcavh7f0rZYw9rW6VE+PoZx8aTcBmKhRwFJbEAPoT4zsudrRpDY5uzmDP9H03NXQl7XEmHJb5or86wiYRPSfnAkzvx97IEtcd0uPkmczH8KgcsNdtGsdHKwD57BLURC1F1gXqe4QzFhnrZEOhzjNq2bhWl7q0ClDcSuTz3jSXw/inm/B1Vl0EbeTohWWbmeWXNPlp7dmHDr7dNiqIgZn6eZoI0i0qZoQCqmRBORsVWQv7i24jBhUwJG6/Y5MjM4FkwzEy1mOd3E2ZxpZHhZlImv2TDPDIfHtdbvm9tQjzgQC7H5wrRd07AYimRPQu9JH3Ehk4GA/NUhfrF3UdapwVHWffBI5PpvwXxlGrQpu57zqSP8XD1jYR+3bNAx4/Jf2Av9V2F0WnqFc="
 
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
@@ -19,7 +27,6 @@ install:
 script:
   - yarn run test
   - yarn run build
-
 
 branches:
   only:
