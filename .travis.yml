@@ -28,6 +28,9 @@ script:
   - yarn run test
   - yarn run build
 
+after_success:
+  - .travis/after_success.sh
+
 branches:
   only:
   - master
