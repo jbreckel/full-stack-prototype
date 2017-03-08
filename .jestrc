@@ -1,0 +1,6 @@
+{
+    "testRegex": "(<rootDir>/test/.*|)\\.spec\\.js?$",
+    "collectCoverageFrom": ["server/**/*.js"],
+    "coverageReporters": ["cobertura", "lcov"],
+    "setupTestFrameworkScriptFile": "<rootDir>/tools/jest/setup-jasmine.js"
+}
