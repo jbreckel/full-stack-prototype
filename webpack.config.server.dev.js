@@ -29,7 +29,7 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        'BUILD_TARGET': JSON.stringify('server'),
+        BUILD_TARGET: JSON.stringify('server'),
       },
     }),
   ],
