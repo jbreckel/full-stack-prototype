@@ -1,14 +1,15 @@
 const webpack = require('webpack')
-const path = require('path')
+
 const nodeExternals = require('webpack-node-externals')
-const StartServerPlugin = require('start-server-webpack-plugin')
+
+const stats = require('../stats')
 
 module.exports = {
+  stats,
   entry: [
-    'webpack/hot/poll?1000',
     './server/index',
   ],
-  watch: true,
+  watch: false,
   target: 'node',
   externals: [
     nodeExternals({ whitelist: ['webpack/hot/poll?1000'] }),
@@ -16,25 +17,35 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.js?$/,
+        use: 'eslint-loader',
+        exclude: /node_modules/,
+      },
+      {
         test: /\.js?$/,
         use: 'babel-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.graphql?$/,
+        use: 'raw-loader',
         exclude: /node_modules/,
       },
     ],
   },
   plugins: [
-    new StartServerPlugin('server.js'),
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         BUILD_TARGET: JSON.stringify('server'),
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
   ],
   output: {
-    path: path.join(__dirname, '.build'),
+    path: '.build',
     filename: 'server.js',
   },
 }

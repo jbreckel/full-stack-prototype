@@ -1,0 +1,15 @@
+
+type Query {
+
+  # retuns the category for the ID
+  category(id: ID!): Category
+
+  # returns a list of all products (optionally filtered by category)
+  categories: [Category]
+
+  # returns a list of all products (optionally filtered by category)
+  products(category: String): [Product]
+
+  # returns the products for the ID
+  product(id: ID!): Product
+}

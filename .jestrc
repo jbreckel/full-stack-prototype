@@ -1,5 +1,9 @@
 {
     "testRegex": "(<rootDir>/test/.*|)\\.spec\\.js?$",
+    "transform": {
+          "^.+\\.js$": "babel-jest",
+          "^.+\\.graphql$": "<rootDir>/tools/jest/graphqlTransformer.js"
+    },
     "collectCoverageFrom": ["server/**/*.js"],
     "coverageReporters": ["cobertura", "lcov"],
     "setupTestFrameworkScriptFile": "<rootDir>/tools/jest/setup-jasmine.js"

@@ -2,8 +2,6 @@
 
 set -e # Abort script at first error
 # set -u # Disallow unset variables
-set -v
-set -x
 
 # Only run when not part of a pull request and on the master branch
 if [[ $TRAVIS_PULL_REQUEST != "false" ]] || [[ $TRAVIS_BRANCH != "master" ]]
@@ -36,9 +34,7 @@ cd $cwd
 
 docker build . -t $IMAGE_NAME
 
-set +x
 docker login -u="$DOCKER_USERNAME" -p="$HEROKU_API_KEY" registry.heroku.com
-set -x
 
 docker tag $IMAGE_NAME registry.heroku.com/jbreckel-soshace-test-task/web
 docker push registry.heroku.com/jbreckel-soshace-test-task/web

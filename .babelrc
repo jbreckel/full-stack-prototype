@@ -3,7 +3,7 @@
     ["env", { "modules": false }],
   ],
   "env": {
-    "test": {
+    "es5": {
       "plugins": [
         "transform-es2015-modules-commonjs",
       ],
