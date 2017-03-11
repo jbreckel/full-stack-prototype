@@ -18,7 +18,7 @@ const { introspectionQuery, printSchema } = require('graphql/utilities')
 
 const { default: Schema } = require('../../server/graphql/schema')
 
-const target = path.join(process.cwd(), 'server/graphql/generated')
+const target = path.join(process.cwd(), 'generated')
 
 const schemaJsonPath = path.join(target, 'schema.json')
 const schemaGraphqlPath = path.join(target, 'schema.graphql')
