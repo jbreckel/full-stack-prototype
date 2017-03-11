@@ -6,3 +6,10 @@ type Product {
   salePrice: Float!
   category: Category
 }
+
+input ProductInput {
+  name: String!
+  purchasePrice: Float!
+  salePrice: Float!
+  categoryId: ID!
+}
