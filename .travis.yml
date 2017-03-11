@@ -24,6 +24,9 @@ before_install:
 install:
   - yarn
 
+before_script:
+  - yarn run generate-graphql-schema
+
 script:
   - yarn run lint
   - yarn run test
