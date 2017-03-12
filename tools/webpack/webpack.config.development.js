@@ -26,28 +26,11 @@ module.exports = merge(base, {
     'webpack/hot/only-dev-server',
   ],
   plugins: [
-    new webpack.NamedModulesPlugin(),
     new webpack.LoaderOptionsPlugin({
       debug: true,
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('development'),
-        BUILD_TARGET: JSON.stringify('client'),
-      },
-      __DEV__: true,
-    }),
   ],
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        use: 'babel-loader?{ "cacheDirectory": true }',
-        exclude: /node_modules/,
-      },
-    ],
-  },
 }, {
   arrayMerge: (a, b) => a.concat(b),
 })

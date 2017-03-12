@@ -29,9 +29,27 @@ module.exports = {
   },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        BUILD_TARGET: JSON.stringify('client'),
+      },
+    }),
   ],
   module: {
     rules: [
+      {
+        enforce: 'pre',
+        test: /\.js?$/,
+        use: 'eslint-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.js$/,
+        use: 'babel-loader?{ "cacheDirectory": true }',
+        exclude: /node_modules/,
+      },
       {
         test: /\.(jpe?g|png|svg|woff|woff2|eot|ttf|gif)($|\?)/,
         loader: 'url-loader',
