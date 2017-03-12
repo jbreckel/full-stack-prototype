@@ -4,7 +4,7 @@ type Product {
   name: String!
   purchasePrice: Float!
   salePrice: Float!
-  category: Category
+  categoryId: ID!
 }
 
 input ProductInput {

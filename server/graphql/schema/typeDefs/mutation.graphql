@@ -3,9 +3,9 @@ type Mutation {
 
   addCategory(category: CategoryInput): Category
   updateCategory(category: CategoryInput): Category
-  removeCategory(category: CategoryInput): Category
+  removeCategory(id: ID!): Category
 
   addProduct(product: ProductInput): Product
   updateProduct(product: ProductInput): Product
-  removeProduct(product: ProductInput): Product
+  removeProduct(id: ID!): Product
 }
