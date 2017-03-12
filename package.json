@@ -31,10 +31,12 @@
     "graphql-server-express": "^0.6.0",
     "graphql-tools": "^0.10.1",
     "http-proxy-middleware": "^0.17.4",
+    "lodash": "^4.17.4",
     "nconf": "^0.8.4",
     "react": "^15.4.2",
     "react-apollo": "^1.0.0-rc.2",
     "react-dom": "^15.4.2",
+    "recompose": "^0.22.0",
     "redux": "^3.6.0"
   },
   "devDependencies": {
