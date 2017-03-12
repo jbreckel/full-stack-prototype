@@ -15,7 +15,7 @@
     "start": "NODE_ENV=development run-p start:*",
     "build": "NODE_ENV=production run-s build:*",
     "test": "BABEL_ENV=es5 jest --config .jestrc",
-    "lint": "eslint server test",
+    "lint": "eslint --ext .js --ext .graphql client server test",
     "generate-graphql-schema": "BABEL_ENV=es5 node tools/graphql/generateGraphqlSchema"
   },
   "dependencies": {
