@@ -1,7 +1,7 @@
 #import '../fragments/Product.graphql'
 
-mutation removeProduct($product: ProductInput) {
-  removeProduct(product: $product) {
+mutation removeProduct($id: ID!) {
+  removeProduct(id: $id) {
     ...Product
   }
 }

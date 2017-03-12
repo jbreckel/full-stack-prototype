@@ -1,7 +1,12 @@
+#import '../fragments/Category.graphql'
 #import '../fragments/Product.graphql'
 
 query ProductTable {
   products {
     ...Product
+  }
+
+  categories {
+    ...Category
   }
 }

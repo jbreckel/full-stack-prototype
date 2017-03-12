@@ -1,0 +1,7 @@
+#import '../fragments/Category.graphql'
+
+query CreateProductModal {
+  categories {
+    ...Category
+  }
+}

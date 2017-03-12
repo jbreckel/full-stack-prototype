@@ -1,8 +1,10 @@
 import React from 'react'
 
+import CreateProduct from '../containers/modals/CreateProduct'
+
 const ButtonBar = () => (
   <div>
-    <button>Create Product</button>
+    <CreateProduct />
     <button>Create Category</button>
   </div>
 )

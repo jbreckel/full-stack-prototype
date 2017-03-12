@@ -1,6 +1,9 @@
 import React from 'react'
 
-const ProductTable = ({ products }) => (
+import UpdateProduct from '../containers/modals/UpdateProduct'
+import DeleteProduct from '../containers/modals/DeleteProduct'
+
+const ProductTable = ({ categories, products }) => (
   <table>
     <thead>
       <tr>
@@ -15,17 +18,23 @@ const ProductTable = ({ products }) => (
     </thead>
     <tbody>
       {
-        products.map(({ id, name, purchasePrice, salePrice, category }) => (
-          <tr key={ id }>
-            <td>{ category.name }</td>
-            <td>{ id.substring(0, 5) }</td>
-            <td>{ name }</td>
-            <td>{ purchasePrice }</td>
-            <td>{ salePrice }</td>
-            <td>Edit { name }</td>
-            <td>Delete { name }</td>
-          </tr>
-        ))
+        products.map((product) => {
+          const { id, name, purchasePrice, salePrice, categoryId } = product
+          const category = categories.find(({ id: cid }) => cid === categoryId)
+            || { name: 'empty' }
+          return (
+            <tr key={ id }>
+              <td>{ category.name }</td>
+              <td>{ id.substring(0, 5) }</td>
+              <td>{ name }</td>
+              <td>{ purchasePrice }</td>
+              <td>{ salePrice }</td>
+              <td><UpdateProduct product={ product }>{`Edit ${name}`}</UpdateProduct></td>
+              <td><DeleteProduct product={ product }>{`Delete ${name}`}</DeleteProduct></td>
+            </tr>
+          )
+        }
+        )
       }
     </tbody>
   </table>
