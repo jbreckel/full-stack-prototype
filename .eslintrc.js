@@ -19,6 +19,7 @@ module.exports = {
         'NoUnusedVariables'
       ),
     }],
+    'react/prop-types': [0],
   },
   plugins: [
     'graphql'
