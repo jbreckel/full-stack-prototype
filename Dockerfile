@@ -9,5 +9,6 @@ RUN mkdir -p /opt
 # Copy the code
 ADD .build/node_modules /opt/app/node_modules
 ADD .build/server.js /opt/app/server.js
+ADD .build/public /opt/app/public
 
 CMD ["node", "server"]
