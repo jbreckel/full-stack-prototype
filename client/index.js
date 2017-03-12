@@ -4,6 +4,8 @@ import ReactDom from 'react-dom'
 import ApolloClient, { createNetworkInterface } from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
 
+import createStore from './store'
+
 import App from './App'
 
 const networkInterface = createNetworkInterface({
@@ -26,7 +28,7 @@ const client = new ApolloClient({
 
 
 ReactDom.render(
-  <ApolloProvider client={ client }>
+  <ApolloProvider store={ createStore(client) } client={ client }>
     <App />
   </ApolloProvider>,
   document.getElementById('root')

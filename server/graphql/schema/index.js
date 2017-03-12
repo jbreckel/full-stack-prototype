@@ -2,8 +2,19 @@ import { makeExecutableSchema, addMockFunctionsToSchema } from 'graphql-tools'
 
 import typeDefs from './typeDefs'
 
+import * as data from './data'
+
 const schema = makeExecutableSchema({
   typeDefs,
+  resolvers: {
+    Query: {
+      products: (_, { category = null }) =>
+        data.products.filter(({ categoryId }) => category === null || categoryId === category),
+      product: (_, { id }) => data.products.find(({ id: pid }) => id === pid),
+      categories: () => data.categories,
+      category: (_, { id }) => data.categories.find(({ id: cid }) => id === cid),
+    },
+  },
 })
 
 const mocks = {
@@ -29,6 +40,9 @@ addMockFunctionsToSchema({
   schema,
   // added static mock values, to allow snapshot testing of query results
   mocks: process.env.NODE_ENV === 'test' ? testMocks : serverMocks,
+  preserveResolvers: true,
 })
 
 export default schema
+
+export { data }

@@ -25,7 +25,7 @@ const ProductTable = ({ categories, products }) => (
           return (
             <tr key={ id }>
               <td>{ category.name }</td>
-              <td>{ id.substring(0, 5) }</td>
+              <td>{ id }</td>
               <td>{ name }</td>
               <td>{ purchasePrice }</td>
               <td>{ salePrice }</td>
