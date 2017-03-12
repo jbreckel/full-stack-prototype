@@ -1,0 +1,7 @@
+#import '../fragments/Category.graphql'
+
+mutation removeCategory($category: CategoryInput) {
+  removeCategory(category: $category) {
+    ...Category
+  }
+}
