@@ -1,0 +1,8 @@
+
+fragment Product on Product {
+    id
+    name
+    purchasePrice
+    salePrice
+    categoryId
+}

@@ -5,16 +5,24 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "prebuild": "rm -rf .build",
+    "clean": "rm -rf .build",
+    "prebuild": "yarn run clean",
+    "prestart": "yarn run clean",
     "start:server": "NODE_ENV=development webpack --config webpack.config.server.js",
-    "build": "NODE_ENV=production webpack --config webpack.config.server.js",
+    "build:server": "NODE_ENV=production webpack --config webpack.config.server.js",
+    "start:client": "NODE_ENV=development webpack-dev-server --config webpack.config.client.js",
+    "build:client": "NODE_ENV=production webpack --config webpack.config.client.js",
+    "start": "NODE_ENV=development run-p start:*",
+    "build": "NODE_ENV=production run-s build:*",
     "test": "BABEL_ENV=es5 jest --config .jestrc",
-    "lint": "eslint server test",
+    "lint": "eslint --ext .js --ext .graphql client server test",
     "generate-graphql-schema": "BABEL_ENV=es5 node tools/graphql/generateGraphqlSchema"
   },
   "dependencies": {
+    "apollo-client": "^1.0.0-rc.2",
     "babel-polyfill": "^6.23.0",
     "body-parser": "^1.17.1",
+    "compression": "^1.6.2",
     "debug": "^2.6.2",
     "deepmerge": "^1.3.2",
     "express": "^4.15.2",
@@ -22,7 +30,15 @@
     "graphql": "^0.9.1",
     "graphql-server-express": "^0.6.0",
     "graphql-tools": "^0.10.1",
-    "nconf": "^0.8.4"
+    "http-proxy-middleware": "^0.17.4",
+    "lodash": "^4.17.4",
+    "nconf": "^0.8.4",
+    "react": "^15.4.2",
+    "react-apollo": "^1.0.0-rc.2",
+    "react-dom": "^15.4.2",
+    "react-modal": "^1.7.2",
+    "recompose": "^0.22.0",
+    "redux": "^3.6.0"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
@@ -31,6 +47,8 @@
     "babel-loader": "^6.4.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.23.0",
     "babel-preset-env": "^1.2.1",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.22.0",
     "eslint": "^3.17.0",
     "eslint-config-signavio": "^1.4.2",
     "eslint-config-signavio-test": "^1.2.2",
@@ -39,10 +57,13 @@
     "graphql-tag": "^1.3.1",
     "jasmine-reporters": "^2.2.0",
     "jest": "^19.0.2",
+    "npm-run-all": "^4.0.2",
     "raw-loader": "^0.5.1",
+    "react-hot-loader": "next",
     "start-server-webpack-plugin": "^2.1.2",
     "supertest": "^3.0.0",
     "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1",
     "webpack-node-externals": "^1.5.4"
   }
 }

@@ -1,0 +1,7 @@
+#import '../fragments/Product.graphql'
+
+mutation updateProduct($product: ProductInput) {
+  updateProduct(product: $product) {
+    ...Product
+  }
+}
