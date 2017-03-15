@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`category can query categories 1`] = `
+Object {
+  "data": Object {
+    "categories": Array [
+      Object {
+        "id": "id",
+        "name": "name",
+      },
+      Object {
+        "id": "id",
+        "name": "name",
+      },
+    ],
+  },
+}
+`;
+
+exports[`category can query category with id 1`] = `
+Object {
+  "data": Object {
+    "category": Object {
+      "id": "id",
+      "name": "name",
+    },
+  },
+}
+`;

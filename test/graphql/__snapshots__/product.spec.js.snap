@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`product can query product with id 1`] = `
+Object {
+  "data": Object {
+    "product": Object {
+      "category": Object {
+        "id": "id",
+        "name": "name",
+      },
+      "id": "id",
+      "name": "name",
+      "purchasePrice": 1.5,
+      "salePrice": 1.5,
+    },
+  },
+}
+`;
+
+exports[`product can query products 1`] = `
+Object {
+  "data": Object {
+    "products": Array [
+      Object {
+        "category": Object {
+          "id": "id",
+          "name": "name",
+        },
+        "id": "id",
+        "name": "name",
+        "purchasePrice": 1.5,
+        "salePrice": 1.5,
+      },
+      Object {
+        "category": Object {
+          "id": "id",
+          "name": "name",
+        },
+        "id": "id",
+        "name": "name",
+        "purchasePrice": 1.5,
+        "salePrice": 1.5,
+      },
+    ],
+  },
+}
+`;
