@@ -4,12 +4,13 @@ type Product {
   name: String!
   purchasePrice: Float!
   salePrice: Float!
-  categoryId: ID
+  category: Category
 }
 
 input ProductInput {
-  name: String!
-  purchasePrice: Float!
-  salePrice: Float!
-  categoryId: ID!
+  id: ID
+  name: String
+  purchasePrice: Float
+  salePrice: Float
+  category: ID
 }

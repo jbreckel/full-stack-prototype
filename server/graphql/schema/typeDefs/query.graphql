@@ -8,7 +8,7 @@ type Query {
   categories: [Category]
 
   # returns a list of all products (optionally filtered by category)
-  products(category: String): [Product]
+  products(categories: [String]): [Product]
 
   # returns the products for the ID
   product(id: ID!): Product
