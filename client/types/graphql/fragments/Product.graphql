@@ -1,8 +1,11 @@
+#import './Category.graphql'
 
 fragment Product on Product {
     id
     name
     purchasePrice
     salePrice
-    categoryId
+    category {
+      ...Category
+    }
 }
