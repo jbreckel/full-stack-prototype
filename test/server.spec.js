@@ -31,20 +31,6 @@ describe('server', () => {
       .expect('GET query missing', done)
     })
 
-    // this only tests one example. graphql schema test will follow shortly
-    it('can query `__typename` of product', (done) => {
-      request(serverInstance)
-      .get('/graphql?query=%7B%0A%20%20products%20%7B%0A%20%20%20%20__typename%0A%20%20%7D%0A%7D')
-      .expect(200)
-      .end((err, res) => {
-        if (err) throw err
-        else {
-          expect(res.body).toMatchSnapshot()
-          done()
-        }
-      })
-    })
-
     it('`/graphiql` returns 200', (done) => {
       request(serverInstance)
       .get('/graphiql')
