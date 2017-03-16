@@ -1,4 +1,3 @@
-#import '../fragments/Category.graphql'
 #import '../fragments/Product.graphql'
 
 query ProductTable {
@@ -7,6 +6,7 @@ query ProductTable {
   }
 
   categories {
-    ...Category
+    id
+    name
   }
 }
