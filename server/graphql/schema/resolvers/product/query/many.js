@@ -1,11 +1,13 @@
+import infoToProjection from 'graphql-mongodb-projection'
+
 import Product from '../../../models/product'
-import getProjection from '../../../utils/get-projection'
 
 export default (root, { categories = [] }, ctx, options) => {
+  console.log('select', infoToProjection(options))
   const query = Product
     .find({})
     .populate({ path: 'category' })
-    .select(getProjection(options.fieldNodes[0]))
+    .select(infoToProjection(options))
 
   if (categories.length > 0) {
     query
