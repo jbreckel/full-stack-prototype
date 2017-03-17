@@ -5,6 +5,6 @@ type Category {
 }
 
 input CategoryInput {
-  id: ID!
-  name: String!
+  id: ID
+  name: String
 }
