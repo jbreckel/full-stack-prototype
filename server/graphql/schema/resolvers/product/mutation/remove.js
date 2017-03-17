@@ -7,4 +7,5 @@ export default (root, { id }, ctx, options) =>
     .findByIdAndRemove(id, {
       select: infoToProjection(options),
     })
+    .populate('category')
     .exec()
