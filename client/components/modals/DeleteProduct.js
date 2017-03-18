@@ -24,10 +24,10 @@ const DeleteProduct = ({
   </DeleteModal>
 )
 const ModalBody = compose(
-  withHandlers(({ closeModal, removeProduct }) => ({
-    yesClick: () => removeProduct().then(closeModal),
-    noClick: () => closeModal(),
-  })),
+  withHandlers({
+    yesClick: ({ closeModal, removeProduct }) => () => removeProduct().then(closeModal),
+    noClick: ({ closeModal }) => () => closeModal(),
+  }),
 )(({ yesClick, noClick, product: { name } }) => (
   <div>
     Do you really wish to delete &quot;{ name }&quot;?

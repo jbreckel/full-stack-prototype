@@ -34,15 +34,18 @@ const CreateOrEditCategory = ({
 
 const ModalBody = compose(
   withState('category', 'setCategory', ({ category = {} }) => cloneDeep(category)),
-)(({ closeModal, sendCategory, ...rest }) => (
+)(({ closeModal, category, sendCategory, ...rest }) => (
   <div>
     <CategoryForm
-      {...rest}
+      {...{
+        ...rest,
+        category,
+      }}
     />
     <button
       onClick={
         () => {
-          sendCategory().then(() => closeModal())
+          sendCategory(category).then(() => closeModal())
         }
       }
     >

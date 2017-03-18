@@ -34,15 +34,18 @@ const CreateOrEditProduct = ({
 
 const ModalBody = compose(
   withState('product', 'setProduct', ({ product = {} }) => cloneDeep(product)),
-)(({ closeModal, sendProduct, ...rest }) => (
+)(({ closeModal, product, sendProduct, ...rest }) => (
   <div>
     <ProductForm
-      {...rest}
+      {...{
+        ...rest,
+        product,
+      }}
     />
     <button
       onClick={
         () => {
-          sendProduct().then(() => closeModal())
+          sendProduct(product).then(() => closeModal())
         }
       }
     >

@@ -6,7 +6,7 @@ import {
   TextInput,
 } from '../inputs'
 
-const ProductForm = ({
+const CategoryForm = ({
   onChange,
   category: {
     name,
@@ -35,4 +35,4 @@ export default compose(
       })
     },
   }),
-)(ProductForm)
+)(CategoryForm)
