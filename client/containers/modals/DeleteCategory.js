@@ -11,7 +11,7 @@ export default compose(
     buttonTitle: props.children,
   })),
   graphql(removeCategory, {
-    props: ({ mutate, ownProps: { product: { id } = {} } }) => ({
+    props: ({ mutate, ownProps: { category: { id } = {} } }) => ({
       removeCategory: () => mutate({
         variables: { id },
       }),

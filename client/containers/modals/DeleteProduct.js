@@ -14,6 +14,12 @@ export default compose(
     props: ({ mutate, ownProps: { product: { id } = {} } }) => ({
       removeProduct: () => mutate({
         variables: { id },
+        updateQueries: {
+          ProductTable: ({ products, ...rest }) => ({
+            ...rest,
+            products: products.filter(({ id: pid }) => pid !== id),
+          }),
+        },
       }),
     }),
   }),

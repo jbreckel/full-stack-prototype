@@ -1,3 +1,5 @@
+import { omit } from 'lodash'
+
 import { compose, mapProps } from 'recompose'
 
 import { graphql } from 'react-apollo'
@@ -12,8 +14,8 @@ export default compose(
   })),
   graphql(updateCategory, {
     props: ({ mutate }) => ({
-      sendCategory: (product) => mutate({
-        variables: { product },
+      sendCategory: (category) => mutate({
+        variables: { category: omit(category, ['__typename', 'selected']) },
       }),
     }),
   }),

@@ -13,8 +13,15 @@ export default compose(
   })),
   graphql(updateProduct, {
     props: ({ mutate }) => ({
-      sendProduct: (product) => mutate({
-        variables: { product },
+      // as we want to omit __typename
+      // eslint-disable-next-line no-unused-vars
+      sendProduct: ({ __typename, category, ...product }) => mutate({
+        variables: {
+          product: {
+            ...product,
+            category: category && category.id,
+          },
+        },
       }),
     }),
   }),
