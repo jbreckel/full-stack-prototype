@@ -14,7 +14,7 @@ const ProductForm = ({
     name,
     purchasePrice,
     salePrice,
-    categoryId,
+    category,
   },
   categories,
 }) => (
@@ -45,9 +45,9 @@ const ProductForm = ({
     {/* categoryId */}
     Category:
     <SelectInput
-      value={ categoryId }
+      value={ category && category.id }
       options={ [{ id: null, name: 'none' }, ...categories] }
-      onChange={ onChange('categoryId') }
+      onChange={ onChange('category') }
     />
     <br />
   </div>
