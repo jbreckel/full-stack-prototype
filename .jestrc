@@ -6,5 +6,7 @@
     },
     "collectCoverageFrom": ["server/**/*.js"],
     "coverageReporters": ["cobertura", "lcov"],
+    "moduleFileExtensions": ["js", "json", "graphql"],
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
     "setupTestFrameworkScriptFile": "<rootDir>/tools/jest/setup-jasmine.js"
 }
