@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductTable render 1`] = `
+<table>
+  <thead>
+    <tr>
+      <th>
+        Category
+      </th>
+      <th>
+        ID
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        Purchase price
+      </th>
+      <th>
+        Sales price
+      </th>
+      <th>
+        Edit
+      </th>
+      <th>
+        Delete
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        category
+      </td>
+      <td>
+        id-1
+      </td>
+      <td>
+        name
+      </td>
+      <td>
+        14
+      </td>
+      <td>
+        15
+      </td>
+      <td>
+        <UpdateProduct
+          product={
+            Object {
+              "category": Object {
+                "id": "id",
+                "name": "category",
+              },
+              "id": "id-1",
+              "name": "name",
+              "purchasePrice": 14,
+              "salePrice": 15,
+            }
+          }
+        >
+          Edit name
+        </UpdateProduct>
+      </td>
+      <td>
+        <DeleteProduct
+          product={
+            Object {
+              "category": Object {
+                "id": "id",
+                "name": "category",
+              },
+              "id": "id-1",
+              "name": "name",
+              "purchasePrice": 14,
+              "salePrice": 15,
+            }
+          }
+        >
+          Delete name
+        </DeleteProduct>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        empty
+      </td>
+      <td>
+        id-2
+      </td>
+      <td>
+        name
+      </td>
+      <td>
+        14
+      </td>
+      <td>
+        15
+      </td>
+      <td>
+        <UpdateProduct
+          product={
+            Object {
+              "category": null,
+              "id": "id-2",
+              "name": "name",
+              "purchasePrice": 14,
+              "salePrice": 15,
+            }
+          }
+        >
+          Edit name
+        </UpdateProduct>
+      </td>
+      <td>
+        <DeleteProduct
+          product={
+            Object {
+              "category": null,
+              "id": "id-2",
+              "name": "name",
+              "purchasePrice": 14,
+              "salePrice": 15,
+            }
+          }
+        >
+          Delete name
+        </DeleteProduct>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
