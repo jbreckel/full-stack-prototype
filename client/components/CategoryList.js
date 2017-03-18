@@ -1,19 +1,30 @@
 import React from 'react'
 
-const CategoryList = ({ categories, querySubscriptions: { loading } }) => (
+import { CheckBox } from './inputs'
+
+import CategoryRow from './CategoryRow'
+
+const CategoryList = ({ categories, querySubscriptions: { loading }, toggleView }) => (
   <div>
     {
       loading
         ? 'Loading'
-        : (
-          <ul>
-            {
-              categories.map(({ id, name }) => (
-                <li key={id} >{ name }</li>
-              ))
-            }
-          </ul>
-        )
+        : [
+          ...categories.map((category) => (
+            <CategoryRow {...{ category, toggleView }} />
+          )),
+          <div
+            key="without"
+          >
+            <CheckBox
+              id="without"
+              isChecked={ false }
+              toggleView={ () => toggleView() }
+            >
+              Without category
+            </CheckBox>
+          </div>,
+        ]
     }
   </div>
 )
