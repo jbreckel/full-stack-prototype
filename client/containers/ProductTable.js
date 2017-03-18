@@ -1,5 +1,5 @@
 import { compose } from 'recompose'
-
+import { connect } from 'react-redux'
 import { graphql } from 'react-apollo'
 
 import ProductTableQuery from '../types/graphql/query/ProductTable.graphql'
@@ -23,8 +23,13 @@ export default compose(
       }),
     }),
   }),
+  connect(
+    ({ categoryView }) => ({
+      categories: categoryView.categories,
+    }),
+  ),
   graphql(ProductTableQuery, {
-    options: ({ categories = [] }) => ({
+    options: ({ categories }) => ({
       variables: {
         categories,
       },

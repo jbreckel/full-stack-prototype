@@ -21,7 +21,7 @@ export const categoryView = (state = initialState, action) => {
     case REMOVE_CATEGORY_FROM_VIEW:
       return {
         ...state,
-        categories: state.categories.filter(({ id }) => id === action.payload.categoryId),
+        categories: state.categories.filter((id) => id !== action.payload.categoryId),
       }
     case CLEAR_CATEGORY_VIEW:
       return {
