@@ -24,9 +24,13 @@ export default compose(
     }),
   }),
   graphql(ProductTableQuery, {
-    props: ({ data: { categories = [], products = [], ...querySubscriptions } }) => ({
+    options: ({ categories = [] }) => ({
+      variables: {
+        categories,
+      },
+    }),
+    props: ({ data: { products = [], ...querySubscriptions } }) => ({
       products,
-      categories,
       querySubscriptions,
     }),
   }),

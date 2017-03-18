@@ -3,7 +3,7 @@ import React from 'react'
 import UpdateProduct from '../containers/modals/UpdateProduct'
 import DeleteProduct from '../containers/modals/DeleteProduct'
 
-const ProductTable = ({ categories, products }) => (
+const ProductTable = ({ products }) => (
   <table>
     <thead>
       <tr>
@@ -19,12 +19,11 @@ const ProductTable = ({ categories, products }) => (
     <tbody>
       {
         products.map((product) => {
-          const { id, name, purchasePrice, salePrice, categoryId } = product
-          const category = categories.find(({ id: cid }) => cid === categoryId)
-            || { name: 'empty' }
+          const { id, name, purchasePrice, salePrice, category } = product
+          const cname = category ? category.name : 'empty'
           return (
             <tr key={ id }>
-              <td>{ category.name }</td>
+              <td>{ cname }</td>
               <td>{ id }</td>
               <td>{ name }</td>
               <td>{ purchasePrice }</td>

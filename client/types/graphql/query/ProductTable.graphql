@@ -1,12 +1,9 @@
 #import '../fragments/Product.graphql'
 
-query ProductTable {
-  products {
+query ProductTable($categories: [String]) {
+
+  products(categories: $categories) {
     ...Product
   }
 
-  categories {
-    id
-    name
-  }
 }
