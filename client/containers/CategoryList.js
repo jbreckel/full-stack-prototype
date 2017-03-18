@@ -53,5 +53,4 @@ export default compose(
       selected: selectedCategories.indexOf(id) !== -1,
     })),
   })),
-  mapProps((p) => console.log(p) || p),
 )(CategoryList)
